@@ -89,3 +89,12 @@ npm i @react-navigation/stack
 npm i @react-navigation/drawer
 ```
 
+for cookie enable
+
+```
+npm i @react-native-community/cookies
+
+npx react-native link @react-native-community/cookies
+
+Add “import CookieManager from '@react-native-community/cookies’;” to App.js
+```

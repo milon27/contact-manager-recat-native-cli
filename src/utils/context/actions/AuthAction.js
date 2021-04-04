@@ -2,14 +2,34 @@ import axios from "axios"
 import Response from './../../helpers/Response';
 import Define from './../../helpers/Define';
 import Types from "./Types";
-import CUser from './../../helpers/CUser';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class AuthAction {
     constructor(dispatch) {
         this.dispatch = dispatch
     }
     //isLoggedIn
-
+    IsLoggedIn = () => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                //hit api get response 
+                const res = await axios.get('student/is-loggedin')
+                const resBoolean = res.data
+                //clear async storage if false
+                if (!resBoolean) {
+                    await AsyncStorage.removeItem(Define.C_USER)
+                }
+                //update auth state
+                this.dispatch({
+                    type: Types.AUTH_STATE,
+                    payload: resBoolean
+                })
+                resolve(resBoolean)
+            } catch (e) {
+                reject(new Error(e.message))
+            }
+        })//end promise
+    }
     //Logout
     Logout = () => {
         //student/logout
@@ -21,8 +41,8 @@ class AuthAction {
                     reject(new Error(message))
                 } else {
                     //logout success
-                    //remove from localstorage
-                    CUser.logOut()
+                    //remove from localstorage/asyncstorage
+                    await AsyncStorage.removeItem(Define.C_USER)
                     //update UI
                     this.dispatch({
                         type: Types.AUTH_LOGOUT
@@ -50,7 +70,7 @@ class AuthAction {
                     //login success
                     //save to localstorage
                     delete response.token
-                    CUser.setCurrentuser(response)
+                    await AsyncStorage.setItem(Define.C_USER, JSON.stringify(response))
                     //update UI
                     this.dispatch({
                         type: Types.AUTH_LOGIN,
@@ -74,12 +94,13 @@ class AuthAction {
                 const res = await axios.post('student/signup', student_obj)
                 const { error, message, response } = res.data
                 if (error) {
+                    console.log("we are here..1" + message);
                     reject(new Error(message))
                 } else {
                     //login success
                     //save to localstorage
                     delete response.token
-                    CUser.setCurrentuser(response)
+                    await AsyncStorage.setItem(Define.C_USER, JSON.stringify(response))
                     //update UI
                     this.dispatch({
                         type: Types.AUTH_SIGNUP,
@@ -90,6 +111,7 @@ class AuthAction {
                     resolve(response_ui)
                 }
             } catch (e) {
+                console.log("we are here.." + e.message);
                 reject(new Error(e.message))
             }
         })//end promise

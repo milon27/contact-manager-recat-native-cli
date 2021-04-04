@@ -3,6 +3,7 @@ const Types = {
     AUTH_LOGIN: "AUTH_LOGIN",
     AUTH_LOGOUT: "AUTH_LOGOUT",
     AUTH_SIGNUP: "AUTH_SIGNUP",
+    AUTH_STATE: "AUTH_STATE",
     //app global state
     START_LOADING: "START_LOADING",
     STOP_LOADING: "STOP_LOADING",

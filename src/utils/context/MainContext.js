@@ -9,7 +9,7 @@ export const DispatchContext = createContext();
 export default function MainContext(props) {
     const [auth, authDispatch] = useReducer(AuthReducer, initAuthState);//for student auth
     const [app, appDispatch] = useReducer(AppReducer, initAppState);//for app state
-    //const [ticket_list, ticket_listDispatch] = useReducer(ListReducer, initListState);//for any kind of list
+    const [contact_list, contact_listDispatch] = useReducer(ListReducer, initListState);//for any kind of list
 
 
     const global_state = {

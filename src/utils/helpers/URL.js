@@ -1,6 +1,10 @@
 const URL = {
-    HOME: "/",
-    SIGN_UP: "/sign-up",
-    SIGN_IN: "/sign-in",
+    HOME_NAV: "Home",
+    SIGN_IN: "Sign In",
+    SIGN_UP: "Sign Up",
+    CONTACTS: "Contacts",
+    CONTACT_DETAIL: "Contact Details",
+    CREATE_CONTACT: "Create Contact",
+    SETTINGS: "Settings",
 }
 export default URL

@@ -12,6 +12,12 @@ target 'contacts' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-cookie', :path => '../node_modules/react-native-cookie'
+
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
+  pod 'react-native-cookies', :path => '../node_modules/react-native-cookies'
+
   target 'contactsTests' do
     inherit! :complete
     # Pods for testing

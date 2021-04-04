@@ -1,5 +1,5 @@
 const Define = {
-    API_BASE_URL: "http://localhost:2727/",//http://localhost:2727/,http://api.freeconvert.xyz/
+    API_BASE_URL: "http://api.freeconvert.xyz/",//http://localhost:2727/,http://api.freeconvert.xyz/,http://10.0.2.2:2727/
     //time format
     FORMAT_DATE: "DD-MM-YYYY",
     //bootstrap color
@@ -10,6 +10,6 @@ const Define = {
     BT_INFO: "info",
     //define
     NOT_SET: "NOT_SET",
-    C_USER: "STU_C_USER",
+    C_USER: "AUTH_C_USER",
 }
 export default Define
