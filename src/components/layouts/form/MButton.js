@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
-import { Pressable, Text, StyleSheet, ActivityIndicator } from 'react-native'
+import { Pressable, Text, StyleSheet, ActivityIndicator, View } from 'react-native'
 import Theme from './../../../utils/helpers/Theme';
 //todo: add loading..
-export default function MButton({ title, color, loading, onPress, disabled, ...props }) {
+export default function MButton({ title, style, color, loading, onPress, disabled, ...props }) {
 
 
     return (
-        <Pressable
-            onPress={onPress}
-            android_ripple={{ color: Theme.COLOR_SECONDARY }}
-            style={({ pressed }) => [{ backgroundColor: pressed ? loading ? Theme.COLOR_GRAY : Theme.COLOR_ACCENT : color }, styles.btn_container, { backgroundColor: loading ? Theme.COLOR_GRAY : color }]}
-            disabled={disabled}
-            {...props}
-        >
-            {loading ? <ActivityIndicator color={Theme.COLOR_WHITE} /> : <Text style={styles.btn_text}>{title}</Text>}
-        </Pressable >
+        <View style={style}>
+            <Pressable
+                onPress={onPress}
+                android_ripple={{ color: Theme.COLOR_SECONDARY }}
+                style={({ pressed }) => [{ backgroundColor: pressed ? loading ? Theme.COLOR_GRAY : Theme.COLOR_ACCENT : color }, styles.btn_container, { backgroundColor: loading ? Theme.COLOR_GRAY : color }]}
+                disabled={disabled}
+                {...props}
+            >
+                {loading ? <ActivityIndicator color={Theme.COLOR_WHITE} /> : <Text style={styles.btn_text}>{title}</Text>}
+            </Pressable >
+        </View>
     )
 }
 
@@ -30,6 +32,7 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
     btn_text: {
+        paddingHorizontal: 10,
         color: Theme.COLOR_WHITE,
     }
 })

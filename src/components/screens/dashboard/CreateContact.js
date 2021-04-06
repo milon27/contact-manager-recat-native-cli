@@ -1,10 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import Container from './../../layouts/Container';
 
 export default function CreateContact() {
     return (
-        <View>
+        <Container>
             <Text>Create New Contact</Text>
-        </View>
+        </Container>
     )
 }

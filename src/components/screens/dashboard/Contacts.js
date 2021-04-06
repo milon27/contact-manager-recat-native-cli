@@ -1,12 +1,13 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import React, { useState, useEffect, useContext } from 'react'
-import { Text, View } from 'react-native';
-import { DispatchContext } from '../../../utils/context/MainContext';
+import { FlatList, Text, View } from 'react-native';
 import Define from '../../../utils/helpers/Define';
-import MButton from '../../layouts/form/MButton';
-import AuthAction from './../../../utils/context/actions/AuthAction';
+import Container from './../../layouts/Container';
+import Sample from './../../../utils/helpers/Sample';
+import ResponseLayout from '../../layouts/ResponseLayout';
+import Response from './../../../utils/helpers/Response';
+import Theme from './../../../utils/helpers/Theme';
 export default function Contacts() {
-    const { authDispatch } = useContext(DispatchContext)
 
     const [user, setUser] = useState("")
     useEffect(() => {
@@ -18,15 +19,19 @@ export default function Contacts() {
     }, [])
 
 
-    const logoutNow = async () => {
-        await new AuthAction(authDispatch).Logout()
+
+    const renderItem = ({ item }) => {
+        return <Text>{item.name}</Text>
     }
 
     return (
-        <View>
-            <Text>Contact Page</Text>
-            <Text>{user}</Text>
-            <MButton title="logout" color="red" onPress={logoutNow} />
-        </View>
+        <Container>
+            <FlatList
+                data={Sample}
+                renderItem={renderItem}
+                ListEmptyComponent={<ResponseLayout response={Response(true, "Opps", "No Contact Found", Theme.COLOR_ACCENT)} />}
+                keyExtractor={item => (String(item.id))}
+            />
+        </Container>
     )
 }

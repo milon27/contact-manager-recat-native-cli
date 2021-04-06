@@ -1,8 +1,10 @@
 import React, { Fragment, useState } from 'react'
 import { View, StyleSheet, TextInput, Text } from 'react-native'
+import DefineIcon from '../icon/DefineIcon';
 import Theme from './../../../utils/helpers/Theme';
+import Icon from './../icon/Icon';
 
-export default function Input({ type = "default", label, error, style, ...pros }) {
+export default function Input({ type = "default", label, icon, error, style, ...pros }) {
 
     const [secure, setSecure] = useState(true)
     const [focused, setFocused] = useState(false)
@@ -25,7 +27,7 @@ export default function Input({ type = "default", label, error, style, ...pros }
             <Text style={styles.label}>{label}</Text>
 
             <View style={[styles.inputContainer, { borderColor: getBorder() }]}>
-                <Text style={styles.icon}>:)</Text>
+                <View style={styles.icon}>{icon}</View>
                 <View style={styles.input}>
                     <TextInput
                         style={styles.inputBox}
@@ -37,7 +39,7 @@ export default function Input({ type = "default", label, error, style, ...pros }
                         onBlur={() => setFocused(false)}
                         {...pros}
                     />
-                    {type === "password" ? <Text onPress={() => { setSecure(s => !s) }} style={styles.secureBtn}>{secure === true ? "SHOW" : "HIDE"}</Text> : <View></View>}
+                    {type === "password" ? <Icon type={DefineIcon.Feather} name={secure === true ? "eye" : "eye-off"} onPress={() => { setSecure(s => !s) }} style={styles.secureBtn}></Icon> : <View></View>}
                 </View>
             </View>
             {error ? <Text style={{ color: Theme.COLOR_DANGER }}> {error}</Text> : <Fragment />}

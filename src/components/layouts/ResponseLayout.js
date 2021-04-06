@@ -10,7 +10,6 @@ export default function ResponseLayout({ response }) {
     const { appDispatch } = useContext(DispatchContext)
 
     useEffect(() => {
-        console.log("start component-" + response.title);
         setTimeout(() => {
             new AppAction(appDispatch).REMOVE_RESPONSE()
         }, 4000);

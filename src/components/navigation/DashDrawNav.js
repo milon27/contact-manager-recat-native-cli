@@ -2,6 +2,7 @@ import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import DashStackNav from './DashStackNav';
 import URL from './../../utils/helpers/URL';
+import DrawerContent from './DrawerContent';
 
 const drawer = createDrawerNavigator()
 
@@ -10,9 +11,13 @@ const drawer = createDrawerNavigator()
  */
 
 export default function DashDrawNav() {
+
     return (
-        <drawer.Navigator>
+        <drawer.Navigator
+            drawerType="slide"
+            drawerContent={(props) => { return <DrawerContent {...props} /> }}
+        >
             <drawer.Screen name={URL.HOME_NAV} component={DashStackNav}></drawer.Screen>
-        </drawer.Navigator>
+        </drawer.Navigator >
     )
 }

@@ -13,6 +13,8 @@ import AuthAction from './../../../utils/context/actions/AuthAction';
 import Response from './../../../utils/helpers/Response';
 import ResponseLayout from './../../layouts/ResponseLayout';
 import AppAction from './../../../utils/context/actions/AppAction';
+import DefineIcon from '../../layouts/icon/DefineIcon';
+import Icon from './../../layouts/icon/Icon';
 
 export default function SignUp() {
 
@@ -79,16 +81,21 @@ export default function SignUp() {
 
             <ResponseLayout response={app?.response} />
 
-            <Input value={input.email} error={error?.email}
+            <Input value={input.email}
+                icon={<Icon type={DefineIcon.MaterialIcon} size={17} name="alternate-email" />}
+                error={error?.email} 
                 onChangeText={(text) => Helper.onChange({ name: N_EMAIL, value: text, setInput: setInput, setError: setError })} label="Enter Your Email" />
 
             <Input value={input.name} error={error?.name}
+                icon={<Icon type={DefineIcon.Feather} size={17} name="user" />}
                 onChangeText={(text) => Helper.onChange({ name: N_NAME, value: text, setInput: setInput, setError: setError })} label="Enter Your Name" />
 
             <Input value={input.password} error={error?.password}
+                icon={<Icon type={DefineIcon.Feather} size={17} name="lock" />}
                 onChangeText={(text) => Helper.onChange({ name: N_PASSWORD, value: text, setInput: setInput, setError: setError })} type="password" label="Enter Password" />
 
             <Input value={input.c_password} error={error?.c_password}
+                icon={<Icon type={DefineIcon.Feather} size={17} name="lock" />}
                 onChangeText={(text) => Helper.onChange({ name: N_C_PASSWORD, value: text, setInput: setInput, setError: setError })} type="password" label="Confirm Password" />
 
             <MButton title="Sign Up Now" loading={app?.loading} color={Theme.COLOR_PRIMARY} onPress={onSubmit} disabled={app?.loading} />

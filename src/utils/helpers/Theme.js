@@ -6,6 +6,7 @@ const Theme = {
     COLOR_GRAY: "#a3a3a3",//gray
     COLOR_WHITE: "#fff",
     COLOR_BLACK: "#000",
-    COLOR_DANGER: "red"
+    COLOR_DANGER: "red",
+    COLOR_TEST: "#29c074",
 }
 export default Theme
