@@ -1,10 +1,11 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, StatusBar } from 'react-native'
 import Theme from './../../../utils/helpers/Theme';
 
 export default function Splash() {
     return (
         <View style={styles.container}>
+            <StatusBar backgroundColor={Theme.COLOR_PRIMARY} />
             <View style={styles.logo_container}>
                 <Image
                     height={75}

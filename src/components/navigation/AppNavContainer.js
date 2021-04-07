@@ -18,9 +18,12 @@ export default function AppNavContainer() {
             //start the loading
             setLoading(true)
             //ck is logged in
-            await new AuthAction(authDispatch).IsLoggedIn()
+            //await new AuthAction(authDispatch).IsLoggedIn()
             //stop the loading
-            setLoading(false)
+
+            setTimeout(() => {
+                setLoading(false)
+            }, 2000);
         }
         load()
     }, [])
@@ -32,7 +35,8 @@ export default function AppNavContainer() {
 
     return (
         <NavigationContainer>
-            {auth?.logged_in ? <DashDrawNav /> : <AuthNav />}
+            {/* {auth?.logged_in ? <DashDrawNav /> : <AuthNav />} */}
+            <DashDrawNav />
         </NavigationContainer >
     )
 }

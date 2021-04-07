@@ -10,6 +10,9 @@ const Define = {
     BT_INFO: "info",
     //define
     NOT_SET: "NOT_SET",
+    //local storage
     C_USER: "AUTH_C_USER",
+    CONTACTS: "CONTACTS",
+
 }
 export default Define

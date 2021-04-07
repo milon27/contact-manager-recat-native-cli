@@ -1,4 +1,4 @@
-package com.contacts;
+package com.m27lab.contacts;
 
 import com.facebook.react.ReactActivity;
 

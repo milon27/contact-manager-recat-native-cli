@@ -14,7 +14,7 @@ export default function DashDrawNav() {
 
     return (
         <drawer.Navigator
-            drawerType="slide"
+            drawerType="back"
             drawerContent={(props) => { return <DrawerContent {...props} /> }}
         >
             <drawer.Screen name={URL.HOME_NAV} component={DashStackNav}></drawer.Screen>

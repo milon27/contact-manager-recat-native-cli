@@ -33,12 +33,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 5,
         paddingHorizontal: 10,
-        marginVertical: 15,
-        height: 44,
         elevation: 4,
-        paddingVertical: 10
+        paddingVertical: 20
     },
     text: {
         color: Theme.COLOR_WHITE,
+        fontSize: 18
     }
 })

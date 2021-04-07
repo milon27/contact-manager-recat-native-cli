@@ -9,14 +9,17 @@ const ListReducer = (state, action) => {
         case Types.ADD_DATA:
             return [action.payload, ...state];//return array with new object
         case Types.UPDATE_DATA:
-            //let objIndex = state.findIndex((obj => obj.id == action.payload.id));
-            //state[objIndex] = action.payload;
             state = state.map(itm => {
                 const id_field = action.payload.id_field
                 if (itm[id_field] === action.payload.obj[id_field])
                     return action.payload.obj;
                 else
                     return itm;
+            });
+            return state;//return array with updated object
+        case Types.DELETE_DATA:
+            state = state.filter(itm => {
+                return itm.id !== action.payload//id
             });
             return state;//return array with updated object
         default:

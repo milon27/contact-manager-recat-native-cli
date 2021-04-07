@@ -6,7 +6,7 @@ export default function Container({ barStyle = "dark-content", bgColor, children
     return (
         <SafeAreaView style={[styles.container, style]}>
             <StatusBar barStyle={barStyle} backgroundColor={bgColor || Theme.COLOR_BG} />
-            <View>
+            <View style={style}>
                 {children}
             </View>
         </SafeAreaView>

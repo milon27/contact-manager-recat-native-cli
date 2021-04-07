@@ -13,10 +13,10 @@ export default function MainContext(props) {
 
 
     const global_state = {
-        auth, app
+        auth, app, contact_list
     }
     const global_dispatch = {
-        authDispatch, appDispatch
+        authDispatch, appDispatch, contact_listDispatch
     }
 
     return (

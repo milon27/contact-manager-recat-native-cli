@@ -38,7 +38,6 @@ export default function SignUp() {
 
     const [input, setInput] = useState(init)
     const [error, setError] = useState(init)
-    //const [loading, setLoading] = useState(false)
 
 
     const onSubmit = async () => {
@@ -83,7 +82,7 @@ export default function SignUp() {
 
             <Input value={input.email}
                 icon={<Icon type={DefineIcon.MaterialIcon} size={17} name="alternate-email" />}
-                error={error?.email} 
+                error={error?.email}
                 onChangeText={(text) => Helper.onChange({ name: N_EMAIL, value: text, setInput: setInput, setError: setError })} label="Enter Your Email" />
 
             <Input value={input.name} error={error?.name}

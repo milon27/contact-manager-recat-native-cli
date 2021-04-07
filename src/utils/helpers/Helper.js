@@ -1,3 +1,4 @@
+import Theme from './Theme';
 import {
     ToastAndroid,
     Platform,
@@ -45,6 +46,12 @@ const Helper = {
         } else {
             setError((pre) => ({ ...pre, [name]: "This field is required" }))
         }
+    },
+    ramdomColor: () => {
+        const colors = ["#CD5C5C", "#FFA07A", "#40E0D0", Theme.COLOR_TEST, "#ffcc33", "#9FE2BF", "#6495ED", "#808000", "#9f8b80", Theme.COLOR_PRIMARY, "#2baabf"]
+        const max = colors.length
+        const random = Math.round(Math.random() * max)
+        return colors[random]
     }
 }
 

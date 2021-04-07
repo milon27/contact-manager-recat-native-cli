@@ -24,7 +24,7 @@ export default function DashStackNav() {
             screenOptions={
                 {
                     headerTitleAlign: "center",
-                    headerLeft: ({ canGoBack }) => (<Icon type={DefineIcon.FAIcon} size={25} style={{ padding: 15 }} name="angle-left" onPress={() => { canGoBack ? nav.goBack() : "" }} />),
+                    headerLeft: ({ canGoBack }) => (<Icon type={DefineIcon.FAIcon} size={28} style={{ paddingHorizontal: 25 }} name="angle-left" onPress={() => { canGoBack ? nav.goBack() : "" }} />),
                     headerStyle: {
                         backgroundColor: Theme.COLOR_BG,
                         elevation: 5,
@@ -37,7 +37,10 @@ export default function DashStackNav() {
             <dashStack.Screen name={URL.CONTACTS} component={Contacts}
                 options={
                     {
-                        headerLeft: () => (<Icon type={DefineIcon.Feather} style={{ padding: 15 }} name="menu" onPress={() => { nav.toggleDrawer() }} />),
+                        headerLeft: () => (<Icon size={28} type={DefineIcon.Feather} style={{ paddingHorizontal: 25 }} name="align-left" onPress={() => { nav.toggleDrawer() }} />),
+                        headerRight: () => {
+                            return <Icon size={28} type={DefineIcon.Feather} style={{ paddingHorizontal: 25 }} name="plus-square" onPress={() => { nav.navigate(URL.CREATE_CONTACT) }} />
+                        }
                     }
                 }//home header style
             />

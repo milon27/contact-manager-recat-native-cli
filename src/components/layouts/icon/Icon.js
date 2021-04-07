@@ -14,6 +14,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import DefineIcon from './DefineIcon';
+import Theme from './../../../utils/helpers/Theme';
 
 
 const getIconFont = (type) => {
@@ -51,7 +52,7 @@ const getIconFont = (type) => {
     }
 };
 
-export default function Icon({ type, size = 22, name, ...props }) {
+export default function Icon({ type, color = Theme.COLOR_BLACK, size = 22, name, ...props }) {
     const FontICon = getIconFont(type);
-    return <FontICon size={size} name={name} {...props} />;
+    return <FontICon color={color} size={size} name={name} {...props} />;
 }

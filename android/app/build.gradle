@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.contacts"
+        applicationId "com.m27lab.contacts"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -19,7 +19,7 @@ export default function DrawerContent({ navigation: nav }) {
         { title: "Home", icon: <Icon type={DefineIcon.Feather} name="home" />, onPress: () => { nav.navigate(URL.CONTACTS) } },
         { title: "Create New", icon: <Icon type={DefineIcon.Feather} name="plus-square" />, onPress: () => { nav.navigate(URL.CREATE_CONTACT) } },
         { title: "Settings", icon: <Icon type={DefineIcon.Feather} name="settings" />, onPress: () => { nav.navigate(URL.SETTINGS) } },
-        { title: "Log Out", icon: <Icon type={DefineIcon.Feather} name="log-out" />, onPress: logoutNow }
+        // { title: "Log Out", icon: <Icon type={DefineIcon.Feather} name="log-out" />, onPress: logoutNow }
     ]
 
 
@@ -31,8 +31,8 @@ export default function DrawerContent({ navigation: nav }) {
 
             <View style={styles.logo_container}>
                 <Image
-                    height={75}
-                    width={75}
+                    height={50}
+                    width={50}
                     source={require('../../assets/img/logo.png')}
                     style={styles.logo}
                 />
@@ -50,12 +50,15 @@ export default function DrawerContent({ navigation: nav }) {
 
 const styles = StyleSheet.create({
     logo: {
-        width: 75,
-        height: 75,
+        width: 50,
+        height: 50,
     },
     logo_container: {
         margin: 15,
-        alignSelf: "center"
+        alignSelf: "center",
+        borderRadius: 50,
+        backgroundColor: Theme.COLOR_PRIMARY,
+        padding: 10
     },
     container: {
         flex: 1,
