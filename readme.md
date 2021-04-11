@@ -10,3 +10,8 @@
 
 >> apk file
 <a href="https://github.com/milon27/contact-manager-recat-native-cli/blob/master/m27contacts.apk" download>Click to Download</a>
+
+>> app screenshot
+
+![alt text](screenshot.png)
+
